@@ -11,7 +11,6 @@ function playApp(e) {
 }
 // 
 function removeTransition(e) {
-	console.log(e)
 	if (e.propertyName !== 'transform') return;
 	this.classList.remove('active_click');
 }
