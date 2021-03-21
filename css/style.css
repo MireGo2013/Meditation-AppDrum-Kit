@@ -74,4 +74,10 @@ body {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
+
+button:focus,
+button:active {
+  outline: none;
+  background: none;
+}
 /*# sourceMappingURL=style.css.map */

@@ -1,4 +1,4 @@
-const keys = document.querySelectorAll('.key');
+const placeKeys = document.querySelector('.wrapper_keys')
 
 //find key and play suit audio 
 function playApp(e) {
@@ -9,30 +9,25 @@ function playApp(e) {
 	key.classList.add('active_click'); //add class when press key
 	audio.play();
 }
-// 
+
 function removeTransition(e) {
 	if (e.propertyName !== 'transform') return;
-	this.classList.remove('active_click');
+	e.target.classList.remove('active_click');
 }
 
-keys.forEach(key => {
-	key.addEventListener('transitionend', removeTransition);
-});
+function playAppMouse(e) {
+	if (e.target.closest('button')) {
+		const audio = document.querySelector(`audio[data-key="${e.target.dataset.key}"]`);
+		if (!audio) return;
+		audio.currentTime = 0;
+		e.target.classList.add('active_click');
+		audio.play();
+		test(e)
+	}
+}
 
+placeKeys.addEventListener('click', playAppMouse);
+document.body.addEventListener('transitionend', removeTransition);
 window.addEventListener('keypress', playApp);
 
-//app work with click mouse
-function playAppMouse() {
-	keys.forEach(item => {
-		item.addEventListener('click', function (e) {
-			const audio = document.querySelector(`audio[data-key="${e.srcElement.dataset.key}"]`);
-			if (!audio) return;
-			audio.currentTime = 0;
-			item.classList.add('active_click');
-			audio.play();
-		})
-	})
-}
-
-window.addEventListener('click', playAppMouse);
 
