@@ -3,9 +3,10 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
 body {
 	background-image: url(../img/stage-focus-spotlights-on-black-background_1017-23779.jpg);
-	background-size: 100%;
+	background-size: cover;
 }
 
 .wrapper_keys {
@@ -20,7 +21,6 @@ body {
 	width: 65px;
 	height: 65px;
 	margin-right: 10px;
-
 	&:nth-of-type(9) {
 		margin-right: 0;
 	}
@@ -50,7 +50,6 @@ body {
 		border: 2px solid whitesmoke;
 		transform: scale(1.1);
 	}
-
 	transition: all 0.07s;
 }
 

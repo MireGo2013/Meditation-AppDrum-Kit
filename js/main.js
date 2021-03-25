@@ -1,13 +1,10 @@
 const placeKeys = document.querySelector('.wrapper_keys')
 
-//find key and play suit audio 
 function playApp(e) {
 	const audio = document.querySelector(`audio[data-key="${e.code}"]`);
 	const key = document.querySelector(`.key[data-key="${e.code}"]`);
 	if (!audio) return;
-	audio.currentTime = 0; //do press key many one
-	key.classList.add('active_click'); //add class when press key
-	audio.play();
+	playBtn(key, audio)
 }
 
 function removeTransition(e) {
@@ -16,14 +13,18 @@ function removeTransition(e) {
 }
 
 function playAppMouse(e) {
-	if (e.target.closest('button')) {
+	const button = e.target.closest('button');
+	if (button) {
 		const audio = document.querySelector(`audio[data-key="${e.target.dataset.key}"]`);
 		if (!audio) return;
-		audio.currentTime = 0;
-		e.target.classList.add('active_click');
-		audio.play();
-		test(e)
+		playBtn(button, audio)
 	}
+}
+
+function playBtn(key, audio) {
+	audio.currentTime = 0
+	key.classList.add('active_click');
+	audio.play();
 }
 
 placeKeys.addEventListener('click', playAppMouse);

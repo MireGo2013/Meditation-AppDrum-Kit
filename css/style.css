@@ -7,7 +7,7 @@
 
 body {
   background-image: url(../img/stage-focus-spotlights-on-black-background_1017-23779.jpg);
-  background-size: 100%;
+  background-size: cover;
 }
 
 .wrapper_keys {
